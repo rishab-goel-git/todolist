@@ -13,7 +13,32 @@
 </head>
 <body>
 <div class = "container">
-    <h1 class = "center">Todo List</h1>
+    <h1 align = "center">Todo List</h1>
+    <!------ Input box   ------->
+    <div class = "row" >
+       <div class = "col">
+
+           <div class="form-group">
+               <label for="newTask">New Task</label>
+               <input type="text" class="form-control" id="newTask" aria-describedby="newTaskHelp" placeholder="Enter the task">
+               <small id="newTaskHelp" class="form-text text-muted">Description</small>
+           </div>
+       </div>
+    </div>
+    <!-----Buttons ----->
+    <div class="row px-4" >
+        <button class="btn btn-success m-2">Add</button>
+        <button class="btn btn-danger m-2">Clear</button>
+    </div>
+
+    <!----- TodoList box ----->
+    <ul class="row list-group m-2">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
 </div>
 </body>
 </html>
