@@ -15,18 +15,37 @@ function addItem(){
     })
     Tasks.append(listItem)
     inpNewTask.val('')
+    toggleInputButtons()
 
 }
 
 function sortTasks(){
     $('#Tasks .done').appendTo(Tasks)
-    //$('#Tasks .done').appendTo(Tasks)
+
+
 }
 
 function clearDone(){
     $('#Tasks .done').remove()
+    toggleInputButtons()
 }
 
+function toggleInputButtons(){
+    // if(!valIsEmpty){
+    //     btnAdd.prop('disabled',false)
+    //     btnReset.prop('disabled',false)
+    // }
+    // else{
+    //     btnAdd.prop('disabled',true)
+    //     btnReset.prop('disabled',true)
+    // }
+
+    btnAdd.prop('disabled',inpNewTask.val()=='')
+    btnReset.prop('disabled',inpNewTask.val()=='')
+    btnSort.prop('disabled',Tasks.children().length<1)
+    btnCleanUp.prop('disabled',Tasks.children().length<1)
+
+}
 btnAdd.click(addItem)
 
 inpNewTask.keypress((e)=>{
@@ -34,9 +53,12 @@ inpNewTask.keypress((e)=>{
         addItem()
     }
 })
-
+inpNewTask.on('input',()=>{
+    toggleInputButtons()
+})
 btnReset.click(()=>{
     inpNewTask.val('')
+    toggleInputButtons()
 })
 
 btnSort.click(sortTasks)
